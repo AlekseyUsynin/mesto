@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Mesto</title>
     <link rel="stylesheet" href="pages/index.css" />
+    <script async src="scripts/index.js"></script>
   </head>
   <body>
     <div class="page">
@@ -123,6 +124,30 @@
         <p class="footer__copyright">&#169; 2022 Mesto Russia</p>
       </footer>
       <!-- footer конец -->
+
+      <!-- popap начало -->
+      <div class="popap popup_sopened">
+        <div class="popup__container">
+          <button class="popap__button-close"></button>
+          <h2 class="popap__title">Редактировать профиль</h2>
+          <form class="popap__form">
+            <input
+              class="popap__input"
+              type="text"
+              placeholder="Имя"
+              name="name"
+            />
+            <input
+              class="popap__input"
+              type="text"
+              placeholder="О себе"
+              name="about-me"
+            />
+            <button class="popap__button-submit">Сохранить</button>
+          </form>
+        </div>
+      </div>
+      <!-- popap коненц -->
     </div>
   </body>
 </html>

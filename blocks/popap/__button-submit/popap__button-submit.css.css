@@ -1,0 +1,15 @@
+.popap__button-submit {
+  margin-top: 48px;
+  background-color: #000;
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  border-radius: 2px;
+}
+
+.popap__button-submit:hover {
+  opacity: 0.8;
+}
