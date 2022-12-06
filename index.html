@@ -43,11 +43,7 @@
               alt="Карачаевск"
             />
             <h2 class="element__title">Карачаевск</h2>
-            <img
-              class="element__like"
-              src="images/element-like.svg"
-              alt="Лайк"
-            />
+            <div class="element__like"></div>
           </div>
           <div class="element">
             <img
@@ -56,11 +52,7 @@
               alt="Гора Эльбрус"
             />
             <h2 class="element__title">Гора Эльбрус</h2>
-            <img
-              class="element__like"
-              src="images/element-like.svg"
-              alt="Лайк"
-            />
+            <div class="element__like"></div>
           </div>
           <div class="element">
             <img
@@ -69,11 +61,7 @@
               alt="Домбай"
             />
             <h2 class="element__title">Домбай</h2>
-            <img
-              class="element__like"
-              src="images/element-like.svg"
-              alt="Лайк"
-            />
+            <div class="element__like"></div>
           </div>
           <div class="element">
             <img
@@ -82,11 +70,7 @@
               alt="Палермо"
             />
             <h2 class="element__title">Палермо</h2>
-            <img
-              class="element__like"
-              src="images/element-like.svg"
-              alt="Лайк"
-            />
+            <div class="element__like"></div>
           </div>
           <div class="element">
             <img
@@ -95,11 +79,7 @@
               alt="Сингапур"
             />
             <h2 class="element__title">Сингапур</h2>
-            <img
-              class="element__like"
-              src="images/element-like.svg"
-              alt="Лайк"
-            />
+            <div class="element__like"></div>
           </div>
 
           <div class="element">
@@ -109,11 +89,7 @@
               alt="Москва"
             />
             <h2 class="element__title">Москва</h2>
-            <img
-              class="element__like"
-              src="images/element-like.svg"
-              alt="Лайк"
-            />
+            <div class="element__like"></div>
           </div>
         </section>
         <!-- elements конец -->
@@ -126,24 +102,29 @@
       <!-- footer конец -->
 
       <!-- popap начало -->
-      <div class="popap popup_sopened">
+      <div class="popup">
         <div class="popup__container">
-          <button class="popap__button-close"></button>
-          <h2 class="popap__title">Редактировать профиль</h2>
-          <form class="popap__form">
+          <button class="popup__button-close"></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form">
             <input
-              class="popap__input"
+              class="popup__input popup__input-name"
               type="text"
               placeholder="Имя"
               name="name"
             />
             <input
-              class="popap__input"
+              class="popup__input popup__input-job"
               type="text"
               placeholder="О себе"
               name="about-me"
             />
-            <button class="popap__button-submit">Сохранить</button>
+            <input
+              class="popup__button-submit"
+              type="submit"
+              name="button-submit"
+              value="Сохранить"
+            />
           </form>
         </div>
       </div>
