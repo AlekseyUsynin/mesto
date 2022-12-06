@@ -34,7 +34,6 @@ function handleFormSubmit(evt) {
   profileTitle.textContent = popupInputName.value;
   profileSubtitle.textContent = popupInputJob.value;
   popup.classList.remove("popup_opened");
-  console.log(profileSubtitle.value);
 }
 
 profileEditButton.addEventListener("click", openPopup);
