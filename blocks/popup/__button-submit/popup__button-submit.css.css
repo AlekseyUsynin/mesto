@@ -10,6 +10,6 @@
   border-radius: 2px;
 }
 
-.popap__button-submit:hover {
+.popup__button-submit:hover {
   opacity: 0.8;
 }

@@ -8,9 +8,10 @@
 }
 
 .element__like:hover {
-  background-image: url(../../../images/element-like-hover.svg);
+  opacity: 0.5;
 }
 
 .element__like:active {
   background-image: url(../../../images/element-like-active.svg);
+  opacity: 1;
 }

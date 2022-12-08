@@ -6,18 +6,18 @@
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  top: -38px;
-  right: -35px;
+  top: -42px;
+  right: -42px;
   border: 0;
   overflow: hidden;
 }
 
-.popap__button-close:hover {
+.popup__button-close:hover {
   opacity: 0.6;
 }
 
-@media screen and (max-width: 370px) {
-  .popap__button-close {
+@media screen and (max-width: 530px) {
+  .popup__button-close {
     right: 0;
   }
 }
