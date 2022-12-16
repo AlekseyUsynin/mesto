@@ -34,63 +34,7 @@
         <!-- profile конец -->
 
         <!-- elements начало -->
-        <section class="elements">
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/element-karachaevsk.jpg"
-              alt="Карачаевск"
-            />
-            <h2 class="element__title">Карачаевск</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/element-elbrus.jpg"
-              alt="Гора Эльбрус"
-            />
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/element-dombay.jpg"
-              alt="Домбай"
-            />
-            <h2 class="element__title">Домбай</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/element-palermo.jpg"
-              alt="Палермо"
-            />
-            <h2 class="element__title">Палермо</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/element-singapore.jpg"
-              alt="Сингапур"
-            />
-            <h2 class="element__title">Сингапур</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/element-moscow.jpg"
-              alt="Москва"
-            />
-            <h2 class="element__title">Москва</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-        </section>
+        <section class="elements"></section>
         <!-- elements конец -->
       </main>
 
@@ -100,8 +44,8 @@
       </footer>
       <!-- footer конец -->
 
-      <!-- popap начало -->
-      <div class="popup">
+      <!-- popap edit начало -->
+      <div class="popup popup_edit-profile">
         <div class="popup__container">
           <button class="popup__button-close" type="button"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
@@ -127,8 +71,45 @@
           </form>
         </div>
       </div>
-      <!-- popap коненц -->
+      <!-- popap edit коненц -->
+
+      <!-- popap add начало -->
+      <div class="popup popup_add-profile">
+        <div class="popup__container">
+          <button class="popup__button-close" type="button"></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form" name="popup-form">
+            <input
+              class="popup__input popup__input_type_name"
+              type="text"
+              placeholder="Имя"
+              name="name"
+            />
+            <input
+              class="popup__input popup__input_type_job"
+              type="text"
+              placeholder="О себе"
+              name="about-me"
+            />
+            <input
+              class="popup__button-submit"
+              type="submit"
+              name="button-submit"
+              value="Сохранить"
+            />
+          </form>
+        </div>
+      </div>
+      <!-- popap add коненц -->
     </div>
+    <template id="element-template">
+      <div class="element">
+        <img class="element__image" src="" alt="" />
+        <h2 class="element__title"></h2>
+        <button class="element__like"></button>
+        <button class="element__delete"></button>
+      </div>
+    </template>
     <script src="scripts/index.js"></script>
   </body>
 </html>
