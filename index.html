@@ -48,8 +48,9 @@
       <div class="popup popup_edit-profile">
         <div class="popup__container">
           <button class="popup__button-close" type="button"></button>
-          <h2 class="popup__title">Редактировать профиль</h2>
+
           <form class="popup__form" name="popup-form">
+            <h2 class="popup__title">Редактировать профиль</h2>
             <input
               class="popup__input popup__input_type_name"
               type="text"
@@ -77,22 +78,23 @@
       <div class="popup popup_add-profile">
         <div class="popup__container">
           <button class="popup__button-close" type="button"></button>
-          <h2 class="popup__title">Редактировать профиль</h2>
+
           <form class="popup__form" name="popup-form">
+            <h2 class="popup__title">Редактировать профиль</h2>
             <input
-              class="popup__input popup__input_type_name"
+              class="popup__input popup__input_type_title"
               type="text"
-              placeholder="Имя"
-              name="name"
+              placeholder="Название"
+              name="title"
             />
             <input
-              class="popup__input popup__input_type_job"
+              class="popup__input popup__input_type_link"
               type="text"
-              placeholder="О себе"
-              name="about-me"
+              placeholder="Ссылка на картинку"
+              name="link"
             />
             <input
-              class="popup__button-submit"
+              class="popup__button-submit popup__button-submit_add"
               type="submit"
               name="button-submit"
               value="Сохранить"
@@ -101,10 +103,22 @@
         </div>
       </div>
       <!-- popap add коненц -->
+
+      <!-- popap image начало -->
+      <div class="popup popup_view-image">
+        <div class="popup__container">
+          <button class="popup__button-close" type="button"></button>
+          <figure class="popup__figure">
+            <img class="popup__image" src="#" alt="фото" />
+            <figcaption class="popup__caption"></figcaption>
+          </figure>
+        </div>
+      </div>
+      <!-- popap image коненц -->
     </div>
-    <template id="element-template">
+    <template class="element-template">
       <div class="element">
-        <img class="element__image" src="" alt="" />
+        <img class="element__image" />
         <h2 class="element__title"></h2>
         <button class="element__like"></button>
         <button class="element__delete"></button>
