@@ -1,6 +1,5 @@
 //Блоки
 const popup = document.querySelector(".popup");
-const popupContainer = document.querySelector(".popup__container");
 const popupForm = document.querySelector(".popup__form");
 const elements = document.querySelector(".elements");
 const element = document.querySelector(".element");
