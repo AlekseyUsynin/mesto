@@ -59,18 +59,6 @@ const initialCards = [
   },
 ];
 
-// function editCard(name, link) {
-//   const card = addCard(name, link);
-//   // const like = card.querySelector(".element__like");
-//   // const deleteCard = card.querySelector(".element__delete");
-//   // deleteCard.addEventListener("click", function (evt) {
-//   //   evt.target.closest(".elements__cards").remove();
-//   // });
-//   // addLike(like);
-//   imageOpen(card);
-//   return card;
-// }
-
 //функция создания карточки
 function addCard(name, link) {
   const elementTemplate = document.querySelector(".element-template").content;
@@ -82,13 +70,15 @@ function addCard(name, link) {
   card.querySelector(".element__image").alt = name;
   card.querySelector(".element__title").textContent = name;
   elementDeleteButton.addEventListener("click", function (evt) {
+    //удаляет карточку
     evt.target.closest(".element").remove();
   });
   elementLike.addEventListener("click", function () {
-    // addLike(elementLike);
+    //ставит и убирает лайк
     elementLike.classList.toggle("element__like_active");
   });
   openImage.addEventListener("click", function () {
+    //открывает картинку
     openPopup(popupViewImage);
     popupImage.src = openImage.src;
     popupImage.alt = openImage.alt;
@@ -96,22 +86,6 @@ function addCard(name, link) {
   });
   return card;
 }
-
-//функция открытия карточки
-// function imageOpen(elm) {
-//   const image = elm.querySelector(".element__image");
-//   image.addEventListener("click", function () {
-//     openPopup(popupViewImage);
-//     popupImage.src = image.src;
-//     popupImage.alt = image.alt;
-//     popupCaption.textContent = image.alt;
-//   });
-// }
-
-//функция додбавления лайков
-// function addLike(elm) {
-//   elm.classList.toggle("element__like_active");
-// }
 
 //функция передающая текст из popup в header
 function handleFormSubmit(evt) {
