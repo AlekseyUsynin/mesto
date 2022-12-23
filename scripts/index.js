@@ -1,6 +1,5 @@
 //Блоки
 const elements = document.querySelector(".elements");
-const element = document.querySelector(".element");
 const popupEditProfile = document.querySelector(".popup_edit-profile");
 const popupAddProfile = document.querySelector(".popup_add-profile");
 const popupViewImage = document.querySelector(".popup_view-image");
@@ -10,7 +9,7 @@ const popupFormAdd = document.forms["popup-form-add"];
 //Кнопки
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileAddButton = document.querySelector(".profile__add-button");
-const popupButtonClose = document.querySelectorAll(".popup__button-close");
+const popupButtonsClose = document.querySelectorAll(".popup__button-close");
 
 //Поля для ввода
 const popupInputName = document.querySelector(".popup__input_type_name");
@@ -125,7 +124,7 @@ profileAddButton.addEventListener("click", function () {
   openPopup(popupAddProfile);
 });
 
-popupButtonClose.forEach(function (button) {
+popupButtonsClose.forEach(function (button) {
   const popup = button.closest(".popup");
   button.addEventListener("click", function () {
     closePopup(popup);
