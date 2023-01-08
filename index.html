@@ -49,20 +49,30 @@
         <div class="popup__container">
           <button class="popup__button-close" type="button"></button>
 
-          <form class="popup__form" name="popup-form-profile">
+          <form class="popup__form" name="popup-form-profile" novalidate>
             <h2 class="popup__title">Редактировать профиль</h2>
             <input
+              id="name"
               class="popup__input popup__input_type_name"
               type="text"
               placeholder="Имя"
               name="name"
+              minlength="2"
+              maxlength="40"
+              required
             />
+            <span class="name-error popup__input-error"></span>
             <input
+              id="about-me"
               class="popup__input popup__input_type_job"
               type="text"
               placeholder="О себе"
               name="about-me"
+              minlength="2"
+              maxlength="200"
+              required
             />
+            <span class="about-me-error popup__input-error"></span>
             <input
               class="popup__button-submit"
               type="submit"
@@ -79,20 +89,28 @@
         <div class="popup__container">
           <button class="popup__button-close" type="button"></button>
 
-          <form class="popup__form" name="popup-form-add">
-            <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form" name="popup-form-add" novalidate>
+            <h2 class="popup__title">Новое место</h2>
             <input
+              id="title"
               class="popup__input popup__input_type_title"
               type="text"
               placeholder="Название"
               name="title"
+              minlength="2"
+              maxlength="30"
+              required
             />
+            <span class="title-error popup__input-error"></span>
             <input
+              id="email"
               class="popup__input popup__input_type_link"
-              type="text"
+              type="email"
               placeholder="Ссылка на картинку"
               name="link"
+              required
             />
+            <span class="email-error popup__input-error"></span>
             <input
               class="popup__button-submit popup__button-submit_add"
               type="submit"
@@ -124,6 +142,7 @@
         <button class="element__delete"></button>
       </div>
     </template>
+    <script src="scripts/validate.js"></script>
     <script src="scripts/index.js"></script>
   </body>
 </html>

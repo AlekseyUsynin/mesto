@@ -52,6 +52,15 @@ const initialCards = [
   },
 ];
 
+const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
 //функция создания карточки
 function addCard(name, link) {
   const elementTemplate = document.querySelector(".element-template").content;
@@ -133,3 +142,4 @@ popupButtonsClose.forEach(function (button) {
 
 popupFormEdit.addEventListener("submit", handleProfileFormSubmit);
 popupFormAdd.addEventListener("submit", handleAddFormSubmit);
+enableValidation(validationConfig);
