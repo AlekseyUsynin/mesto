@@ -1,6 +1,6 @@
 //функция показываект ошибку
 function showInputError(formElement, inputElement, config) {
-  //ищем span с ошибкой
+  //ищем span с ошибкой по id
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   errorElement.classList.add(config.errorClass); //передаем в span клас с ошибкой
   errorElement.textContent = inputElement.validationMessage; //передаем стандартный текст ошибки
@@ -9,7 +9,7 @@ function showInputError(formElement, inputElement, config) {
 
 //функция уберает ошибку
 function hideInputError(formElement, inputElement, config) {
-  //ищем span с ошибкой
+  //ищем span с ошибкой по id
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   errorElement.classList.remove(config.errorClass); //удаляем в span клас с ошибкой
   errorElement.textContent = ""; //удаляем стандартный текст ошибки
