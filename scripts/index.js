@@ -55,11 +55,7 @@ const initialCards = [
 const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
-<<<<<<< HEAD
-  submitButtonSelector: ".popup__button",
-=======
   submitButtonSelector: ".popup__button-submit",
->>>>>>> develop
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
@@ -113,10 +109,7 @@ function handleAddFormSubmit(evt) {
 //функция открытие popup
 function openPopup(popupName) {
   popupName.classList.add("popup_opened"); // добавляем клас открывающий popup
-<<<<<<< HEAD
-=======
   document.addEventListener("keydown", closePopupEsc);
->>>>>>> develop
 }
 
 //функция закрытие popup
@@ -157,10 +150,7 @@ profileAddButton.addEventListener("click", function () {
 
 popupButtonsClose.forEach(function (button) {
   const popup = button.closest(".popup");
-<<<<<<< HEAD
-=======
   popup.addEventListener("click", closePopupOverlay);
->>>>>>> develop
   button.addEventListener("click", function () {
     closePopup(popup);
   });
@@ -168,8 +158,4 @@ popupButtonsClose.forEach(function (button) {
 
 popupFormEdit.addEventListener("submit", handleProfileFormSubmit);
 popupFormAdd.addEventListener("submit", handleAddFormSubmit);
-<<<<<<< HEAD
-enableValidation(validationConfig);
-=======
 enableValidation(validationConfig); //передаем объект состоящий из свойств с классами, по каторым мы будет искать и в любую разметку эту валидацию могли применить
->>>>>>> develop
