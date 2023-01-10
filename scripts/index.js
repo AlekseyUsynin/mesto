@@ -55,7 +55,7 @@ const initialCards = [
 const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
+  submitButtonSelector: ".popup__button-submit",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
@@ -109,11 +109,26 @@ function handleAddFormSubmit(evt) {
 //функция открытие popup
 function openPopup(popupName) {
   popupName.classList.add("popup_opened"); // добавляем клас открывающий popup
+  document.addEventListener("keydown", closePopupEsc);
 }
 
 //функция закрытие popup
 function closePopup(popupName) {
   popupName.classList.remove("popup_opened"); // удаляем класс что бы убрать popup
+  document.removeEventListener("keydown", closePopupEsc);
+}
+
+function closePopupEsc(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+}
+
+function closePopupOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
+  }
 }
 
 //Добавляем карточки из массива initialCards
@@ -135,6 +150,7 @@ profileAddButton.addEventListener("click", function () {
 
 popupButtonsClose.forEach(function (button) {
   const popup = button.closest(".popup");
+  popup.addEventListener("click", closePopupOverlay);
   button.addEventListener("click", function () {
     closePopup(popup);
   });
@@ -142,4 +158,4 @@ popupButtonsClose.forEach(function (button) {
 
 popupFormEdit.addEventListener("submit", handleProfileFormSubmit);
 popupFormAdd.addEventListener("submit", handleAddFormSubmit);
-enableValidation(validationConfig);
+enableValidation(validationConfig); //передаем объект состоящий из свойств с классами, по каторым мы будет искать и в любую разметку эту валидацию могли применить
