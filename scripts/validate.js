@@ -16,6 +16,22 @@ function hideInputError(formElement, inputElement, config) {
   inputElement.classList.remove(config.inputErrorClass); //удаляем в input клас с ошибкой
 }
 
+// функция отчищает ошибку при открытии попап, передаем в отбработчик открытия попап
+function cleanError(formElement, config) {
+  const errorElement = Array.from(
+    formElement.querySelectorAll(`.${config.errorClass}`)
+  );
+  errorElement.forEach((textErrer) => {
+    textErrer.textContent = "";
+  });
+  const inputElement = Array.from(
+    formElement.querySelectorAll(config.inputSelector)
+  );
+  inputElement.forEach((typeError) => {
+    typeError.classList.remove(config.inputErrorClass);
+  });
+}
+
 //фцнкция проверяет инпуты на валидность
 function checkInputValidity(formElement, inputElement, config) {
   //проверяем у инпутов в параметре ValidityState свойство valid на валидность инпута
@@ -72,4 +88,17 @@ function enableValidation(config) {
     // передаем функцию где находим все инпуты
     setEventListeners(formElement, config);
   });
+}
+
+//функция фиксит баг кнопки Сохранить, которая оставалась активной с пустыми полями, после повторного открытия попап, если в предыдущий раз форма прошла валитдацию
+function disableSubmitButton(formElement, config) {
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  buttonElement.classList.add(config.inactiveButtonClass); //добавляем клас блокирующий кнопку
+}
+
+//функция фиксит баг кнопки Сохранить, которая оставалась неактивной с валидными полями, при первом открытии попап
+function enableSubmitButton(formElement, config) {
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  buttonElement.classList.remove(config.inactiveButtonClass); //убираем класс блокирующий кнопку
+  buttonElement.disabled = false; //включаем кнопку
 }
