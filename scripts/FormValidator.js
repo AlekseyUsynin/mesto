@@ -60,12 +60,9 @@ class FormValidator {
   //функция блокирует кнопку сохранить, если не все инпуты валидны и разблокирует если все поля валидны
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
-      //если есть невалидный инпут, добавляет класс блокирующший кнопку
-      this._buttonElement.classList.add(this._inactiveButtonClass);
-      this._buttonElement.disabled = true; //включаем кнопку
+      this.disableSubmitButton();
     } else {
-      this._buttonElement.classList.remove(this._inactiveButtonClass);
-      this._buttonElement.disabled = false; //выключаем кнопку
+      this.enableSubmitButton();
     }
   }
 
@@ -83,19 +80,14 @@ class FormValidator {
     });
   }
 
-  // //функция фиксит баг кнопки Сохранить, которая оставалась активной с пустыми полями, после повторного открытия попап, если в предыдущий раз форма прошла валитдацию
+  // //функция отключает кнопку Сохранить. Используется во внешнем коде, так как остается активной с пустыми полями, после повторного открытия попап добавления карточек, если в предыдущий раз форма прошла валитдацию
   disableSubmitButton() {
-    this._buttonElement = this._formElement.querySelector(
-      this._submitButtonSelector
-    );
     this._buttonElement.classList.add(this._inactiveButtonClass); //добавляем клас блокирующий кнопку
+    this._buttonElement.disabled = false; //включаем кнопку
   }
 
-  //функция фиксит баг кнопки Сохранить, которая оставалась неактивной с валидными полями, при первом открытии попап
+  //функция включает кнопку Сохранит. Используется во внешнем коде, так как оставалась неактивной с валидными полями, при первом открытии попап редактирования профиля
   enableSubmitButton() {
-    this._buttonElement = this._formElement.querySelector(
-      this._submitButtonSelector
-    );
     this._buttonElement.classList.remove(this._inactiveButtonClass); //убираем класс блокирующий кнопку
     this._buttonElement.disabled = false; //включаем кнопку
   }

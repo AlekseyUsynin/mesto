@@ -1,5 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+import initialCards from "./initialCards.js";
 
 //Блоки
 const elements = document.querySelector(".elements");
@@ -27,34 +28,6 @@ const profileSubtitle = document.querySelector(".profile__subtitle");
 const popupImage = document.querySelector(".popup__image");
 const popupCaption = document.querySelector(".popup__caption");
 
-//массив для начальной загрузки карточек
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-
 const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -64,62 +37,23 @@ const validationConfig = {
   errorClass: "popup__error_visible",
 };
 
-//функция создания карточки
-// function createCard(name, link) {
-// const elementTemplate = document.querySelector(".element-template").content;
-// const card = elementTemplate.querySelector(".element").cloneNode(true);
-// const elementDeleteButton = card.querySelector(".element__delete");
-// const elementLike = card.querySelector(".element__like");
-// const openImage = card.querySelector(".element__image");
-// openImage.src = link;
-// openImage.alt = name;
-// card.querySelector(".element__title").textContent = name;
-// elementDeleteButton.addEventListener("click", deleteCard);
-
-//ставит и убирает лайк
-// elementLike.addEventListener("click", function () {
-//   elementLike.classList.toggle("element__like_active");
-// });
-
-//открывает картинку
-// openImage.addEventListener("click", function () {
-//   popupImage.src = openImage.src;
-//   popupImage.alt = openImage.alt;
-//   popupCaption.textContent = openImage.alt;
-//   openPopup(popupViewImage);
-// });
-// return card;
-// }
-
 //функция добавления карточки
 function handleAddFormSubmit(evt) {
   evt.preventDefault(); //отменяем стандартное поведение submit
-  // const card = createCard(popupAddInputTitle.value, popupAddInputLink.value);
-  // const card = new Card(
-  //   popupAddInputTitle.value,
-  //   popupAddInputLink.value,
-  //   openImage
-  // );
   const card = {
     name: popupAddInputTitle.value,
     link: popupAddInputLink.value,
   };
-  elements.prepend(renderElement(card));
-  renderElement(card, elements);
+  elements.prepend(createElement(card));
   closePopup(popupAddProfile);
   popupFormAdd.reset(); //очищает поля ввода
 }
 
-function renderElement(data) {
+function createElement(data) {
   const card = new Card(data, ".element-template", openImage);
   const templateElement = card.getView();
   return templateElement;
 }
-
-//фуункция удаляет карточку
-// function deleteCard(evt) {
-//   evt.target.closest(".element").remove();
-// }
 
 //функция передающая текст из popup в header
 function handleProfileFormSubmit(evt) {
@@ -168,8 +102,6 @@ profileEditButton.addEventListener("click", function () {
   popupInputJob.value = profileSubtitle.textContent;
   validationFormEditProfile.resetValidationForm();
   validationFormEditProfile.enableSubmitButton();
-  // cleanError(popupFormEdit, validationConfig);
-  // enableSubmitButton(popupFormEdit, validationConfig);
 });
 
 profileAddButton.addEventListener("click", function () {
@@ -178,8 +110,6 @@ profileAddButton.addEventListener("click", function () {
   popupAddInputTitle.value = "";
   validationFormAdd.resetValidationForm();
   validationFormAdd.disableSubmitButton();
-  // cleanError(popupFormAdd, validationConfig);
-  // disableSubmitButton(popupFormAdd, validationConfig);
 });
 
 popupButtonsClose.forEach(function (button) {
@@ -192,12 +122,11 @@ popupButtonsClose.forEach(function (button) {
 
 //Добавляем карточки из массива initialCards
 initialCards.forEach(function (elm) {
-  elements.append(renderElement(elm));
+  elements.append(createElement(elm));
 });
 
 popupFormEdit.addEventListener("submit", handleProfileFormSubmit);
 popupFormAdd.addEventListener("submit", handleAddFormSubmit);
-// enableValidation(validationConfig); //передаем объект состоящий из свойств с классами, по каторым мы будет искать и в любую разметку эту валидацию могли применить
 const validationFormAdd = new FormValidator(validationConfig, popupFormAdd);
 validationFormAdd.enableValidation();
 
