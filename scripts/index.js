@@ -37,7 +37,6 @@ const validationConfig = {
 };
 
 //функция создания карточки
-<<<<<<< HEAD
 function createCard(name, link) {
   const elementTemplate = document.querySelector(".element-template").content;
   const card = elementTemplate.querySelector(".element").cloneNode(true);
@@ -68,64 +67,6 @@ function deleteCard(evt) {
   evt.target.closest(".element").remove();
 }
 
-=======
-// function createCard(name, link) {
-// const elementTemplate = document.querySelector(".element-template").content;
-// const card = elementTemplate.querySelector(".element").cloneNode(true);
-// const elementDeleteButton = card.querySelector(".element__delete");
-// const elementLike = card.querySelector(".element__like");
-// const openImage = card.querySelector(".element__image");
-// openImage.src = link;
-// openImage.alt = name;
-// card.querySelector(".element__title").textContent = name;
-// elementDeleteButton.addEventListener("click", deleteCard);
-
-//ставит и убирает лайк
-// elementLike.addEventListener("click", function () {
-//   elementLike.classList.toggle("element__like_active");
-// });
-
-//открывает картинку
-// openImage.addEventListener("click", function () {
-//   popupImage.src = openImage.src;
-//   popupImage.alt = openImage.alt;
-//   popupCaption.textContent = openImage.alt;
-//   openPopup(popupViewImage);
-// });
-// return card;
-// }
-
-//функция добавления карточки
-function handleAddFormSubmit(evt) {
-  evt.preventDefault(); //отменяем стандартное поведение submit
-  // const card = createCard(popupAddInputTitle.value, popupAddInputLink.value);
-  // const card = new Card(
-  //   popupAddInputTitle.value,
-  //   popupAddInputLink.value,
-  //   openImage
-  // );
-  const card = {
-    name: popupAddInputTitle.value,
-    link: popupAddInputLink.value,
-  };
-  elements.prepend(renderElement(card));
-  renderElement(card, elements);
-  closePopup(popupAddProfile);
-  popupFormAdd.reset(); //очищает поля ввода
-}
-
-function renderElement(data) {
-  const card = new Card(data, ".element-template", openImage);
-  const templateElement = card.getView();
-  return templateElement;
-}
-
-//фуункция удаляет карточку
-// function deleteCard(evt) {
-//   evt.target.closest(".element").remove();
-// }
-
->>>>>>> develop
 //функция передающая текст из popup в header
 function handleProfileFormSubmit(evt) {
   evt.preventDefault(); //отменяем стандартное поведение submit
@@ -134,7 +75,6 @@ function handleProfileFormSubmit(evt) {
   closePopup(popupEditProfile);
 }
 
-<<<<<<< HEAD
 //функция добавления карточки
 function handleAddFormSubmit(evt) {
   evt.preventDefault(); //отменяем стандартное поведение submit
@@ -142,13 +82,6 @@ function handleAddFormSubmit(evt) {
   elements.prepend(card);
   closePopup(popupAddProfile);
   popupFormAdd.reset(); //очищает поля ввода
-=======
-function openImage(name, link) {
-  popupImage.src = link;
-  popupImage.alt = name;
-  popupCaption.textContent = name;
-  openPopup(popupViewImage);
->>>>>>> develop
 }
 
 //функция открытие popup
@@ -176,44 +109,25 @@ function closePopupOverlay(evt) {
   }
 }
 
-<<<<<<< HEAD
-//Добавляем карточки из массива initialCards
-initialCards.forEach(function (elm) {
-  const card = createCard(elm.name, elm.link);
-  elements.append(card);
-});
-
-=======
->>>>>>> develop
 //открывает popup профиля
 profileEditButton.addEventListener("click", function () {
   openPopup(popupEditProfile);
   popupInputName.value = profileTitle.textContent;
   popupInputJob.value = profileSubtitle.textContent;
-<<<<<<< HEAD
-  cleanError(popupFormEdit, validationConfig);
-  enableSubmitButton(popupFormEdit, validationConfig);
-=======
   validationFormEditProfile.resetValidationForm();
   validationFormEditProfile.enableSubmitButton();
   // cleanError(popupFormEdit, validationConfig);
   // enableSubmitButton(popupFormEdit, validationConfig);
->>>>>>> develop
 });
 
 profileAddButton.addEventListener("click", function () {
   openPopup(popupAddProfile);
   popupAddInputLink.value = "";
   popupAddInputTitle.value = "";
-<<<<<<< HEAD
-  cleanError(popupFormAdd, validationConfig);
-  disableSubmitButton(popupFormAdd, validationConfig);
-=======
   validationFormAdd.resetValidationForm();
   validationFormAdd.disableSubmitButton();
   // cleanError(popupFormAdd, validationConfig);
   // disableSubmitButton(popupFormAdd, validationConfig);
->>>>>>> develop
 });
 
 popupButtonsClose.forEach(function (button) {
