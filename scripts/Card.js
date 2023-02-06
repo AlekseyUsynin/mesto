@@ -1,5 +1,3 @@
-import openImage from "./index.js";
-
 class Card {
   constructor(data, templateElement, openImage) {
     this._name = data.name;
@@ -55,7 +53,6 @@ class Card {
     this._titlePopupElement = this._newCard.querySelector(".element__title");
     this._titlePopupElement.textContent = this._name;
 
-    // this._setData();
     this._setEventListener();
 
     return this._newCard;

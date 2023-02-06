@@ -83,13 +83,31 @@ class FormValidator {
     });
   }
 
-  resetValidation() {
+  // //функция фиксит баг кнопки Сохранить, которая оставалась активной с пустыми полями, после повторного открытия попап, если в предыдущий раз форма прошла валитдацию
+  disableSubmitButton() {
+    this._buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
+    this._buttonElement.classList.add(this._inactiveButtonClass); //добавляем клас блокирующий кнопку
+  }
+
+  //функция фиксит баг кнопки Сохранить, которая оставалась неактивной с валидными полями, при первом открытии попап
+  enableSubmitButton() {
+    this._buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
+    this._buttonElement.classList.remove(this._inactiveButtonClass); //убираем класс блокирующий кнопку
+    this._buttonElement.disabled = false; //включаем кнопку
+  }
+
+  //функцияф чистит ошибки в форме
+  resetValidationForm() {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
   }
 
-  //публичный метод который включает валидацию
+  //функция включает валидацию
   enableValidation = () => {
     this._setEventListeners();
   };

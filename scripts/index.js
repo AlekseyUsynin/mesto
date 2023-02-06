@@ -1,6 +1,5 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import initialCards from "./cards.js";
 
 //Блоки
 const elements = document.querySelector(".elements");
@@ -27,6 +26,34 @@ const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 const popupImage = document.querySelector(".popup__image");
 const popupCaption = document.querySelector(".popup__caption");
+
+//массив для начальной загрузки карточек
+const initialCards = [
+  {
+    name: "Архыз",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+  },
+  {
+    name: "Челябинская область",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+  },
+  {
+    name: "Иваново",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+  },
+  {
+    name: "Камчатка",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+  },
+  {
+    name: "Холмогорский район",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+  },
+  {
+    name: "Байкал",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+  },
+];
 
 const validationConfig = {
   formSelector: ".popup__form",
@@ -102,7 +129,7 @@ function handleProfileFormSubmit(evt) {
   closePopup(popupEditProfile);
 }
 
-export default function openImage(name, link) {
+function openImage(name, link) {
   popupImage.src = link;
   popupImage.alt = name;
   popupCaption.textContent = name;
@@ -139,14 +166,18 @@ profileEditButton.addEventListener("click", function () {
   openPopup(popupEditProfile);
   popupInputName.value = profileTitle.textContent;
   popupInputJob.value = profileSubtitle.textContent;
+  validationFormEditProfile.resetValidationForm();
+  validationFormEditProfile.enableSubmitButton();
   // cleanError(popupFormEdit, validationConfig);
-  enableSubmitButton(popupFormEdit, validationConfig);
+  // enableSubmitButton(popupFormEdit, validationConfig);
 });
 
 profileAddButton.addEventListener("click", function () {
   openPopup(popupAddProfile);
   popupAddInputLink.value = "";
   popupAddInputTitle.value = "";
+  validationFormAdd.resetValidationForm();
+  validationFormAdd.disableSubmitButton();
   // cleanError(popupFormAdd, validationConfig);
   // disableSubmitButton(popupFormAdd, validationConfig);
 });
