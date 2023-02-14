@@ -1,11 +1,14 @@
-class Card {
-  constructor(data, templateElement, openImage) {
-    this._name = data.name;
-    this._link = data.link;
-    this._templateElement = templateElement;
-    this._openImage = openImage;
+//класс Card создаёт карточку с текстом и ссылкой на изображение
+
+export default class Card {
+  constructor(item, elementTemplate, handleCardClick) {
+    this._name = item.name;
+    this._link = item.link;
+    this._elementTemplate = elementTemplate;
+    this._handleCardClick = handleCardClick;
   }
 
+  //получаем разметку
   _getTemplate() {
     const card = document
       .querySelector(".element-template")
@@ -15,18 +18,18 @@ class Card {
     return card;
   }
 
-  //функция удаляет карточку и чистит память
+  //метод удаляет карточку и чистит память
   _deleteCard() {
     this._newCard.remove();
     this._newCard = null;
   }
 
-  //функция меняющая стиль кнопки лайк
+  //метод меняющая стиль кнопки лайк
   _likeCard() {
     this._likeButton.classList.toggle("element__like_active");
   }
 
-  //функция со слушателями
+  //метод со слушателями
   _setEventListener() {
     this._deleteButton.addEventListener("click", () => {
       this._deleteCard();
@@ -36,9 +39,7 @@ class Card {
       this._likeCard();
     });
 
-    this._imagePopupElement.addEventListener("click", () => {
-      this._openImage(this._name, this._link);
-    });
+    this._imagePopupElement.addEventListener("click", this._handleCardClick);
   }
 
   getView() {
@@ -58,5 +59,3 @@ class Card {
     return this._newCard;
   }
 }
-
-export default Card;

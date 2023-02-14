@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "Проект разработан в рамках курса Веб-разработчик Яндекс Практикум",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlekseyUsynin/mesto.git"
+  },
+  "author": "Aleksey Usynin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlekseyUsynin/mesto/issues"
+  },
+  "homepage": "https://github.com/AlekseyUsynin/mesto#readme"
+}
