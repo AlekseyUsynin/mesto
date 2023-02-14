@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body>
     <div class="page">
@@ -20,7 +19,7 @@
           <div class="profile__container">
             <img
               class="profile__avatar"
-              src="images/profile-avatar.jpg"
+              src="<%=require('./images/profile-avatar.jpg')%>"
               alt="Жак-Ив Кусто"
             />
             <div class="profile__info">
@@ -127,7 +126,7 @@
         <div class="popup__container">
           <button class="popup__button-close" type="button"></button>
           <figure class="popup__figure">
-            <img class="popup__image" alt="фото" />
+            <img class="popup__image" src="#" alt="фото" />
             <figcaption class="popup__caption"></figcaption>
           </figure>
         </div>
@@ -142,6 +141,5 @@
         <button class="element__delete"></button>
       </div>
     </template>
-    <script type="module" src="pages/index.js"></script>
   </body>
 </html>

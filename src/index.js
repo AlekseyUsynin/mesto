@@ -1,10 +1,11 @@
-import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import UserInfo from "../components/UserInfo.js";
-import Section from "../components/Section.js";
-import initialCards from "../utils/initialCards.js";
+import "./pages/index.css";
+import Card from "./components/Card.js";
+import FormValidator from "./components/FormValidator.js";
+import PopupWithImage from "./components/PopupWithImage.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import UserInfo from "./components/UserInfo.js";
+import Section from "./components/Section.js";
+import initialCards from "./utils/initialCards.js";
 import {
   containerSelector,
   popupEditProfile,
@@ -17,7 +18,7 @@ import {
   popupInputName,
   popupInputJob,
   validationConfig,
-} from "../utils/constants.js";
+} from "./utils/constants.js";
 
 // функции ------------
 //функция открывает попап с картинкой при клике на карточку
