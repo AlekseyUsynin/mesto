@@ -11,7 +11,7 @@ export default class Card {
   //получаем разметку
   _getTemplate() {
     const card = document
-      .querySelector(".element-template")
+      .querySelector(this._elementTemplate)
       .content.querySelector(".element")
       .cloneNode(true);
 
@@ -39,7 +39,9 @@ export default class Card {
       this._likeCard();
     });
 
-    this._imagePopupElement.addEventListener("click", this._handleCardClick);
+    this._imagePopupElement.addEventListener("click", () =>
+      this._handleCardClick({ src: this._link, alt: this._name })
+    );
   }
 
   getView() {

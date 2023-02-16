@@ -8,7 +8,6 @@ import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import initialCards from "../utils/initialCards.js";
 import {
-  containerSelector,
   popupEditProfile,
   popupAddProfile,
   popupViewImage,
@@ -23,15 +22,19 @@ import {
 
 // функции ------------
 //функция открывает попап с картинкой при клике на карточку
-function handleCardClick(evt) {
-  popupWithImage.open(evt.target);
+function handleCardClick(data) {
+  popupWithImage.open(data);
+}
+
+function renderCard(item) {
+  section.addItem(createElement(item));
 }
 
 //функеция при вызове которой создаёт карточку с текстом и ссылкой на изображение
 function createElement(data) {
   const card = new Card(data, ".element-template", handleCardClick);
-  const templateElement = card.getView();
-  return templateElement;
+  const newElement = card.getView();
+  return newElement;
 }
 
 // создание классов ------------
@@ -39,11 +42,9 @@ function createElement(data) {
 const section = new Section(
   {
     items: initialCards,
-    renderer: (item) => {
-      section.addItem(createElement(item));
-    },
+    renderer: renderCard,
   },
-  containerSelector
+  ".elements"
 );
 
 //класс PopupWithImage перезаписывать родительский метод open. В методе open класса PopupWithImage нужно вставлять в попап картинку с src изображения и подписью к картинке
@@ -56,13 +57,13 @@ const profileEditForm = new PopupWithForm(popupEditProfile, (data) => {
 
 //класс PopupWithForm собирает данные всех полей формы, добавляет обработчик клика и обработчик сабмита
 const addCardForm = new PopupWithForm(popupAddProfile, (item) => {
-  section.addItem(createElement(item));
+  renderCard(item);
 });
 
 //Класс UserInfo отвечает за управление отображением информации о пользователе на странице
 const userInfo = new UserInfo({
-  title: ".profile__title",
-  info: ".profile__subtitle",
+  titleSelector: ".profile__title",
+  infoSelector: ".profile__subtitle",
 });
 
 const validationFormAdd = new FormValidator(validationConfig, popupFormAdd);
@@ -84,9 +85,9 @@ validationFormEditProfile.enableValidation();
 profileEditButton.addEventListener("click", function () {
   validationFormEditProfile.resetValidationForm(); //очистка ошибок, после открытия попапа.
   validationFormEditProfile.enableSubmitButton(); // валидация кнопки при открытии попапа.
-  const { title, info } = userInfo.getUserInfo();
-  popupInputName.value = title;
-  popupInputJob.value = info;
+  const { titleSelector, infoSelector } = userInfo.getUserInfo();
+  popupInputName.value = titleSelector;
+  popupInputJob.value = infoSelector;
   profileEditForm.open();
 });
 
