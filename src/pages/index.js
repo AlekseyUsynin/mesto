@@ -8,9 +8,6 @@ import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import initialCards from "../utils/initialCards.js";
 import {
-  popupEditProfile,
-  popupAddProfile,
-  popupViewImage,
   popupFormEdit,
   popupFormAdd,
   profileEditButton,
@@ -48,15 +45,15 @@ const section = new Section(
 );
 
 //класс PopupWithImage перезаписывать родительский метод open. В методе open класса PopupWithImage нужно вставлять в попап картинку с src изображения и подписью к картинке
-const popupWithImage = new PopupWithImage(popupViewImage);
+const popupWithImage = new PopupWithImage(".popup_view-image");
 
 //класс PopupWithForm собирает данные всех полей формы, добавляет обработчик клика и обработчик сабмита
-const profileEditForm = new PopupWithForm(popupEditProfile, (data) => {
+const profileEditForm = new PopupWithForm(".popup_edit-profile", (data) => {
   userInfo.setUserInfo(data);
 });
 
 //класс PopupWithForm собирает данные всех полей формы, добавляет обработчик клика и обработчик сабмита
-const addCardForm = new PopupWithForm(popupAddProfile, (item) => {
+const addCardForm = new PopupWithForm(".popup_add-profile", (item) => {
   renderCard(item);
 });
 

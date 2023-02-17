@@ -1,8 +1,4 @@
 //Блоки
-export const containerSelector = document.querySelector(".elements");
-export const popupEditProfile = document.querySelector(".popup_edit-profile");
-export const popupAddProfile = document.querySelector(".popup_add-profile");
-export const popupViewImage = document.querySelector(".popup_view-image");
 export const popupFormEdit = document.forms["popup-form-profile"];
 export const popupFormAdd = document.forms["popup-form-add"];
 

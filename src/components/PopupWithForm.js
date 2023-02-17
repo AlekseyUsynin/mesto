@@ -27,12 +27,10 @@ export default class PopupWithForm extends Popup {
   //метод setEventListeners наследует родительский метод, добавляет обработчик клика и обработчик сабмита формы
   setEventListeners() {
     super.setEventListeners();
-    this._popup
-      .querySelector(".popup__form")
-      .addEventListener("submit", (evt) => {
-        evt.preventDefault();
-        this._handleFormSubmit(this._getInputValues());
-        this.close();
-      });
+    this._popupForm.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit(this._getInputValues());
+      this.close();
+    });
   }
 }

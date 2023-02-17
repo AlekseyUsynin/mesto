@@ -1,7 +1,7 @@
 //класс Popup отвечает за открытие и закрытие попапа
 export default class Popup {
   constructor(popupSelector) {
-    this._popup = popupSelector;
+    this._popup = document.querySelector(popupSelector);
   }
 
   //метод _handleEscClose содержит логику закрытия попапа клавишей Esc
