@@ -7,14 +7,18 @@ export default class Section {
     this._container = document.querySelector(containerSelector); //селектор контейнера
   }
 
-  //метод addItem принимает DOM-элемент и добавляет его в контейнер
+  //вставляем карточку
   addItem(item) {
-    // console.log(item);
     this._container.prepend(item);
+  }
+
+  //вставляем карточки с сервера
+  addItems(items) {
+    this._container.append(items);
   }
 
   //метод отвечает за отрисовку всех элементов
   renderItems(items) {
-    items.reverse().forEach(this._renderer);
+    items.forEach(this._renderer);
   }
 }

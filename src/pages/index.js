@@ -22,7 +22,6 @@ import {
 
 let userId = null; //переменная куда будет перезаписываться ID
 
-// ------------ функции ------------
 // Создание новой карточки
 function createElement(data) {
   const card = new Card(data, ".element-template", userId, {
@@ -92,8 +91,8 @@ const userInfo = new UserInfo({
 // класс Section отвечает за отрисовку элементов на странице.
 const section = new Section(
   {
-    renderer: (item) => {
-      section.addItem(createElement(item));
+    renderer: (items) => {
+      section.addItems(createElement(items));
     },
   },
   ".elements"
@@ -196,24 +195,28 @@ addCardForm.setEventListeners();
 editAvatarPopup.setEventListeners();
 deleteCardPopup.setEventListeners();
 
-// ------------ cлушатели ------------
-profileEditButton.addEventListener("click", function () {
+function profileEditOpen() {
   validationFormEditProfile.resetValidationForm(); //очистка ошибок, после открытия попапа.
   validationFormEditProfile.enableSubmitButton(); // валидация кнопки при открытии попапа.
   const { titleSelector, infoSelector } = userInfo.getUserInfo();
   popupInputName.value = titleSelector;
   popupInputJob.value = infoSelector;
   profileEditForm.open();
-});
+}
 
-profileAddButton.addEventListener("click", function () {
+function profileAddOpen() {
   validationFormAdd.resetValidationForm(); //очистка ошибок, после открытия попапа.
   validationFormAdd.disableSubmitButton(); //отключает кнопку сохранить
   addCardForm.open();
-});
+}
 
-avatarEditButton.addEventListener("click", () => {
+function avatarEditOpen() {
   validationFormAvatar.resetValidationForm(); //очистка ошибок, после открытия попапа.
   validationFormAvatar.disableSubmitButton(); //отключает кнопку сохранить
   editAvatarPopup.open();
-});
+}
+
+// ------------ cлушатели ------------
+profileEditButton.addEventListener("click", profileEditOpen);
+profileAddButton.addEventListener("click", profileAddOpen);
+avatarEditButton.addEventListener("click", avatarEditOpen);
