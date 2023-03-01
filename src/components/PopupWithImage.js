@@ -10,10 +10,10 @@ export default class PopupWithImage extends Popup {
   }
 
   //в методе open класса PopupWithImage нужно вставлять в попап картинку с src изображения и подписью к картинке
-  open(data) {
+  open(name, link) {
     super.open();
-    this._image.alt = data.alt;
-    this._image.src = data.src;
-    this._caption.textContent = data.alt;
+    this._image.alt = name;
+    this._image.src = link;
+    this._caption.textContent = name;
   }
 }
