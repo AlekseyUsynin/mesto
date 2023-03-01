@@ -11,6 +11,7 @@ export default class Api {
       return Promise.reject(`${res.status} ${res.statusText}`);
     }
   }
+
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
